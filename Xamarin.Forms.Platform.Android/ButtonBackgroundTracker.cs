@@ -77,10 +77,10 @@ namespace Xamarin.Forms.Platform.Android
 
 				var useDefaultShadow = _button.OnThisPlatform().UseDefaultShadow();
 
-				float shadowRadius = useDefaultShadow ? 2 : _nativeButton.ShadowRadius;
+				float shadowRadius = useDefaultShadow ? 5 : _nativeButton.ShadowRadius;
 				float shadowDx = useDefaultShadow ? 0 : _nativeButton.ShadowDx;
-				float shadowDy = useDefaultShadow ? 4 : _nativeButton.ShadowDy;
-				AColor shadowColor = useDefaultShadow ? _backgroundDrawable.PressedBackgroundColor.ToAndroid() : _nativeButton.ShadowColor;
+				float shadowDy = useDefaultShadow ? 1 : _nativeButton.ShadowDy;
+				AColor shadowColor = useDefaultShadow ? Color.FromHex("#c4c4c4").ToAndroid() : _nativeButton.ShadowColor;
 
 				_backgroundDrawable.SetPadding(paddingTop, paddingLeft)
 								   .SetShadow(shadowDy, shadowDx, shadowColor, shadowRadius);
