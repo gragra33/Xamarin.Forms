@@ -9,6 +9,8 @@ namespace Xamarin.Forms.Platform.iOS
 	{
 		readonly Dictionary<nint, Cell> _headerCells = new Dictionary<nint, Cell>();
 
+		EventHandler _onForceUpdateSizeRequested;
+
 		protected bool HasBoundGestures;
 		protected UITableView Table;
 
@@ -32,6 +34,9 @@ namespace Xamarin.Forms.Platform.iOS
 			var cell = View.Model.GetCell(indexPath.Section, indexPath.Row);
 
 			var nativeCell = CellTableViewCell.GetNativeCell(tableView, cell);
+
+			WireUpForceUpdateSizeRequested(cell, nativeCell, tableView);
+
 			return nativeCell;
 		}
 
@@ -98,6 +103,20 @@ namespace Xamarin.Forms.Platform.iOS
 		public override string TitleForHeader(UITableView tableView, nint section)
 		{
 			return View.Model.GetSectionTitle((int)section);
+		}
+
+		protected void WireUpForceUpdateSizeRequested(ICellController cell, UITableViewCell nativeCell, UITableView tableView)
+		{
+			cell.ForceUpdateSizeRequested -= _onForceUpdateSizeRequested;
+
+			_onForceUpdateSizeRequested = (sender, e) =>
+			{
+				var index = tableView?.IndexPathForCell(nativeCell) ?? (sender as Cell)?.GetIndexPath();
+				if (index != null)
+					tableView.ReloadRows(new[] { index }, UITableViewRowAnimation.None);
+			};
+
+			cell.ForceUpdateSizeRequested += _onForceUpdateSizeRequested;
 		}
 
 		void BindGestures(UITableView tableview)
