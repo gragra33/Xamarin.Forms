@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using Xamarin.Forms.StyleSheets;
+
+//[assembly: StyleProperty("-xf-view-margin-left-property", typeof(View), nameof(View.MarginLeftProperty))]
+//[assembly: StyleProperty("-xf-view-margin-top-property", typeof(View), nameof(View.MarginTopProperty))]
+//[assembly: StyleProperty("-xf-view-margin-right-property", typeof(View), nameof(View.MarginRightProperty))]
+//[assembly: StyleProperty("-xf-view-margin-bottom-property", typeof(View), nameof(View.MarginBottomProperty))]
 
 namespace Xamarin.Forms
 {

@@ -1,4 +1,9 @@
-﻿namespace Xamarin.Forms
+﻿using Xamarin.Forms;
+using Xamarin.Forms.StyleSheets;
+
+//[assembly: StyleProperty("-xf-borderelement-border-color", typeof(BorderElement), nameof(BorderElement.BorderColorProperty))]
+
+namespace Xamarin.Forms
 {
 	static class BorderElement
 	{

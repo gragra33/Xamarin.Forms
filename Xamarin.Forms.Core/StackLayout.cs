@@ -1,6 +1,11 @@
 using System;
 using System.ComponentModel;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using Xamarin.Forms.StyleSheets;
+
+[assembly: StyleProperty("-xf-stacklayout-spacing", typeof(StackLayout), nameof(StackLayout.SpacingProperty))]
+[assembly: StyleProperty("-xf-stacklayout-orientation", typeof(StackLayout), nameof(StackLayout.OrientationProperty))]
 
 namespace Xamarin.Forms
 {

@@ -1,5 +1,10 @@
 using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform;
+using Xamarin.Forms.StyleSheets;
+
+[assembly: StyleProperty("-xf-tabbedpage-bar-background-color", typeof(TabbedPage), nameof(TabbedPage.BarBackgroundColorProperty))]
+[assembly: StyleProperty("-xf-tabbedpage-bar-text-color", typeof(TabbedPage), nameof(TabbedPage.BarTextColorProperty))]
 
 namespace Xamarin.Forms
 {

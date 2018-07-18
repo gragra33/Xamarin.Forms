@@ -1,8 +1,14 @@
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Platform;
+using Xamarin.Forms.StyleSheets;
+
+[assembly: StyleProperty("-xf-scrollview-orientation", typeof(ScrollView), nameof(ScrollView.OrientationProperty))]
+[assembly: StyleProperty("-xf-scrollview-horizontal-scroll-bar-visibility", typeof(ScrollView), nameof(ScrollView.HorizontalScrollBarVisibilityProperty))]
+[assembly: StyleProperty("-xf-scrollview-vertical-scroll-bar-visibility", typeof(ScrollView), nameof(ScrollView.VerticalScrollBarVisibilityProperty))]
 
 namespace Xamarin.Forms
 {

@@ -1,8 +1,15 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Input;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Platform;
+using Xamarin.Forms.StyleSheets;
+
+[assembly: StyleProperty("-xf-entry-text-color", typeof(Entry), nameof(Entry.TextColorProperty))]
+[assembly: StyleProperty("-xf-entry-placeholder", typeof(Entry), nameof(Entry.PlaceholderProperty))]
+[assembly: StyleProperty("-xf-entry-placeholder-color", typeof(Entry), nameof(Entry.PlaceholderColorProperty))]
+[assembly: StyleProperty("-xf-entry-is-password", typeof(Entry), nameof(Entry.IsPasswordProperty))]
 
 namespace Xamarin.Forms
 {
