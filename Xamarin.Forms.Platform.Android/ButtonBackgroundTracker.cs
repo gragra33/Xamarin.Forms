@@ -80,6 +80,7 @@ namespace Xamarin.Forms.Platform.Android
 				float shadowRadius = useDefaultShadow ? 5 : _nativeButton.ShadowRadius;
 				float shadowDx = useDefaultShadow ? 0 : _nativeButton.ShadowDx;
 				float shadowDy = useDefaultShadow ? 1 : _nativeButton.ShadowDy;
+				// #c4c4c4 is the color taken from android-sdk\platforms\android-27\data\res\drawable-mdpi\btn_default_normal.9.png
 				AColor shadowColor = useDefaultShadow ? Color.FromHex("#c4c4c4").ToAndroid() : _nativeButton.ShadowColor;
 
 				_backgroundDrawable.SetPadding(paddingTop, paddingLeft)
