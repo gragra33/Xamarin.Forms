@@ -37,6 +37,7 @@ namespace Xamarin.Forms.Platform.Android
 		}
 
 		double BorderWidth => Math.Max(Button.IsSet(Button.BorderWidthProperty) ? Button.BorderWidth : .25, 0);
+		// #c5c5c5 is the color taken from android-sdk\platforms\android-27\data\res\drawable-mdpi\btn_default_normal.9.png
 		Color BorderColor => Button.IsSet(Button.BorderColorProperty) && Button.BorderColor != Color.Default ? Button.BorderColor : Color.FromHex("#c5c5c5");
 
 		public ButtonDrawable(Func<double, float> convertToPixels, Color defaultColor)
