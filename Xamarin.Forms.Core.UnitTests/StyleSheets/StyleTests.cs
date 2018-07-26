@@ -101,7 +101,7 @@ namespace Xamarin.Forms.StyleSheets.UnitTests
 			Assert.That((page.Content as Label).TextColor, Is.EqualTo(Color.Red));
 		}
 
-		public string ToVenderSpecificCss(Type type, string property)
+		public string ToVendorSpecificCss(Type type, string property)
 		{
 			var sb = new StringBuilder();
 			sb.Append(Char.ToLower(property[0]));
@@ -119,12 +119,12 @@ namespace Xamarin.Forms.StyleSheets.UnitTests
 			return $"-xf-{ type.Name.ToLower()}-{cssProperty}";
 		}
 
-		public object ApplyVenderSpecificCssValue(
+		public object ApplyVendorSpecificCssValue(
 			Type concreteType, Type type, string property, string value)
 		{
 			var app = new MockApplication();
 
-			var css = $"{concreteType.Name} {{ {ToVenderSpecificCss(type, property)}: {value}; }}";
+			var css = $"{concreteType.Name} {{ {ToVendorSpecificCss(type, property)}: {value}; }}";
 			app.Resources.Add(StyleSheet.FromString(css));
 
 			var content = Activator.CreateInstance(concreteType, nonPublic: true);
@@ -209,7 +209,7 @@ namespace Xamarin.Forms.StyleSheets.UnitTests
 				nameof(VisualElement.ScaleY),
 			}),
 		]
-		public void GreenVenderSpecificStyleSheetsAreApplied(Type type, object propertyOrArray)
+		public void GreenVendorSpecificStyleSheetsAreApplied(Type type, object propertyOrArray)
 		{
 			if (propertyOrArray is string)
 				propertyOrArray = new[] { propertyOrArray };
@@ -234,10 +234,10 @@ namespace Xamarin.Forms.StyleSheets.UnitTests
 					concretType = typeof(Entry);
 
 				var element = Activator.CreateInstance(concretType, nonPublic: true);
-				var bp = ((IStylable)element).GetProperty(ToVenderSpecificCss(type, property), false);
+				var bp = ((IStylable)element).GetProperty(ToVendorSpecificCss(type, property), false);
 				var value = values[bp.ReturnType];
 
-				var result = ApplyVenderSpecificCssValue(concretType, type, property, value.css);
+				var result = ApplyVendorSpecificCssValue(concretType, type, property, value.css);
 				Assert.That(result, Is.EqualTo(value.result));
 			}
 		}
